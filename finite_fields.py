@@ -5,14 +5,18 @@ from miller_rabin import is_probable_prime
  
 class FiniteField():
     def __init__(self, n=None):         #Finite fields must have prime-power order (power can be 1)
+
+      #the following was removed due to miller-rabin detecting NIST primes as composite--not sure why
       #  if not float(n).is_integer():
       #      raise("Order of the field must be an integer.")
       #  R = self.getPower(n)
       #  if not is_probable_prime(R[1]):
       #      raise Exception("This field order is probably invalid. The order must be a prime power.")
+
+
         self.order = n
         self.is_finite = True
-      #  self.squares = self.getSquares()
+
 
     def getPower(self, n):                              #Check every whole-number root to see if any roots are integers
         for i in range(n.bit_length()-1, 0, -1):        #this is the range of all possible whole-number roots starting form the largest and ending at 1
